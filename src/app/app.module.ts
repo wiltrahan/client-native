@@ -8,7 +8,8 @@ import { NewClientFormComponent } from './clients/new-client-form/new-client-for
 import { EditClientFormComponent } from './clients/edit-client-form/edit-client-form.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { AuthComponent } from './auth/auth.component';
-
+import { AppRoutingModule } from "~/app/app-routing.module";
+import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
@@ -20,7 +21,9 @@ import { AuthComponent } from './auth/auth.component';
         AppComponent
     ],
     imports: [
-        NativeScriptModule
+        NativeScriptModule,
+        NativeScriptFormsModule,
+        AppRoutingModule
     ],
     declarations: [
         AppComponent,
