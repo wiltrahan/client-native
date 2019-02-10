@@ -10,6 +10,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { AuthComponent } from './auth/auth.component';
 import { AppRoutingModule } from "~/app/app-routing.module";
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
+import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component';
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
@@ -32,7 +33,8 @@ import { NativeScriptFormsModule } from 'nativescript-angular/forms';
         NewClientFormComponent,
         EditClientFormComponent,
         CalendarComponent,
-        AuthComponent
+        AuthComponent,
+        ActionBarComponent
     ],
     providers: [],
     schemas: [
