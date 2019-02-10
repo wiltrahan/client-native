@@ -3,6 +3,11 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
 import { AppComponent } from "./app.component";
 import { ClientListComponent } from './clients/client-list/client-list.component';
+import { ClientInfoComponent } from './clients/client-info/client-info.component';
+import { NewClientFormComponent } from './clients/new-client-form/new-client-form.component';
+import { EditClientFormComponent } from './clients/edit-client-form/edit-client-form.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { AuthComponent } from './auth/auth.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -19,7 +24,12 @@ import { ClientListComponent } from './clients/client-list/client-list.component
     ],
     declarations: [
         AppComponent,
-        ClientListComponent
+        ClientListComponent,
+        ClientInfoComponent,
+        NewClientFormComponent,
+        EditClientFormComponent,
+        CalendarComponent,
+        AuthComponent
     ],
     providers: [],
     schemas: [
