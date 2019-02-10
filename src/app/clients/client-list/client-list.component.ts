@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ItemEventData } from 'tns-core-modules/ui/list-view';
 
 @Component({
   selector: 'ns-client-list',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientListComponent implements OnInit {
 
-  constructor() { }
+  @Input() clients = ['Jessica Nunes', 'Frankie Nunes', 'Wil Trahan', 'Saquon Barkley'];
 
   ngOnInit() {
+  }
+
+  onClientTap(args: ItemEventData) {
+    console.log(args);
   }
 
 }
