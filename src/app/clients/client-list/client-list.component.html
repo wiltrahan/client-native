@@ -1,6 +1,14 @@
 <!-- <ListView [items]="clients" (itemTap)="onClientTap($event)">
 
 </ListView> -->
+<ActionBar title="Client List"></ActionBar>
 <StackLayout>
   <Label text="Clients will be here!"></Label>
+  <Button 
+    text="Client" 
+    class="btn"
+    (tap)="getClientPage()">
+  </Button>
 </StackLayout>
+  
+
