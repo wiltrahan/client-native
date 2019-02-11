@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UIService } from '~/app/shared/ui.service';
 
 @Component({
   selector: 'ns-action-bar',
@@ -9,9 +10,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ActionBarComponent implements OnInit {
   @Input() title: string;
   
-  constructor() { }
+  constructor(private uiService: UIService) { }
 
   ngOnInit() {
+  }
+
+  onToggleMenu() {
+    this.uiService.toggleDrawer();
   }
 
 }

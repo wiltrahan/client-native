@@ -12,8 +12,7 @@ import { AppRoutingModule } from "~/app/app-routing.module";
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component';
 import { NavTabsComponent } from './nav-tabs/nav-tabs.component';
-// Uncomment and add to NgModule imports if you need to use two-way binding
-// import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 // import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
@@ -25,7 +24,8 @@ import { NavTabsComponent } from './nav-tabs/nav-tabs.component';
     imports: [
         NativeScriptModule,
         NativeScriptFormsModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NativeScriptUISideDrawerModule
     ],
     declarations: [
         AppComponent,

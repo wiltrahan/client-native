@@ -1,4 +1,12 @@
-<StackLayout>
-  <page-router-outlet></page-router-outlet>
-</StackLayout>
+<RadSideDrawer>
+  <FlexboxLayout tkDrawerContent class="drawer-container">
+    <Button text="Logout" class="btn"></Button>
+  </FlexboxLayout>
+  <StackLayout tkMainContent>
+      <page-router-outlet></page-router-outlet>
+  </StackLayout>
+</RadSideDrawer>
+
+
+
 
