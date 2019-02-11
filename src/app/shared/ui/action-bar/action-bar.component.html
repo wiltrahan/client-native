@@ -1,8 +1,8 @@
 <ActionBar [title]="title">
-  <ActionItem ios.position="left">
-    <Label 
-    text="MENU"
+  <ActionItem
+    *ngIf="!android && hasMenu"
+    ios.position="left"
     (tap)="onToggleMenu()">
-  </Label>
+    <Label text="MENU"></Label>
   </ActionItem>
 </ActionBar>

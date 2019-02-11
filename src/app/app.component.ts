@@ -30,6 +30,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     this.chgDetRef.detectChanges();
   }
 
+  onLogout() {
+    this.uiService.toggleDrawer();  
+  }
+
   ngOnDestroy() {
     if(this.drawerSub) {
       this.drawerSub.unsubscribe();
