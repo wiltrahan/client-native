@@ -11,13 +11,13 @@ import { CalendarComponent } from "~/app/calendar/calendar.component";
 
 const routes: Routes = [
   { path: '', component: AuthComponent },
-  { path: 'client-list', component: ClientListComponent },
   { path: 'client', component: ClientInfoComponent },
   { path: 'edit-client-form', component: EditClientFormComponent },
   { 
     path: 'nav-tabs', 
     component: NavTabsComponent, 
     children: [
+      { path: 'client-list', component: ClientListComponent, outlet: 'clientList' },
       { path: 'new-client-form', component: NewClientFormComponent, outlet: 'newClientForm' },
       { path: 'calendar', component: CalendarComponent, outlet: 'calendar' }
     ] 

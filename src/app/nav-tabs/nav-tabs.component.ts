@@ -15,7 +15,7 @@ export class NavTabsComponent implements OnInit {
   ngOnInit() {
     this.router.navigate([
       {
-        outlets: { newClientForm: ['new-client-form'], calendar: ['calendar'] }
+        outlets: { newClientForm: ['new-client-form'], calendar: ['calendar'], clientList: ['client-list'] }
       }
     ],
     {
