@@ -6,13 +6,22 @@ import { ClientListComponent } from "~/app/clients/client-list/client-list.compo
 import { ClientInfoComponent } from "~/app/clients/client-info/client-info.component";
 import { NewClientFormComponent } from "~/app/clients/new-client-form/new-client-form.component";
 import { EditClientFormComponent } from "~/app/clients/edit-client-form/edit-client-form.component";
+import { NavTabsComponent } from "~/app/nav-tabs/nav-tabs.component";
+import { CalendarComponent } from "~/app/calendar/calendar.component";
 
 const routes: Routes = [
   { path: '', component: AuthComponent },
   { path: 'client-list', component: ClientListComponent },
   { path: 'client', component: ClientInfoComponent },
-  { path: 'new-client-form', component: NewClientFormComponent },
-  { path: 'edit-client-form', component: EditClientFormComponent }
+  { path: 'edit-client-form', component: EditClientFormComponent },
+  { 
+    path: 'nav-tabs', 
+    component: NavTabsComponent, 
+    children: [
+      { path: 'new-client-form', component: NewClientFormComponent, outlet: 'newClientForm' },
+      { path: 'calendar', component: CalendarComponent, outlet: 'calendar' }
+    ] 
+  }
 ];
 
 @NgModule({
