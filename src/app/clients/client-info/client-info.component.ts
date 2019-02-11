@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
   selector: 'ns-client-info',
@@ -8,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: RouterExtensions) { }
 
   ngOnInit() {
+  }
+
+  onEdit() {
+    this.router.navigate(['/clients/edit']);
   }
 
 }

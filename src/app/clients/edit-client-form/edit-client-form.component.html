@@ -1,2 +1,5 @@
-<ns-action-bar title="Edit Client"></ns-action-bar>
+<ns-action-bar 
+  [title]="isEditing ? 'Replace Client' : 'Edit Client'"
+  [hasMenu]="false">
+</ns-action-bar>
 <Button text="edit-client-form works!" class="btn btn-primary"></Button>
