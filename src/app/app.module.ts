@@ -11,8 +11,8 @@ import { AuthComponent } from './auth/auth.component';
 import { AppRoutingModule } from "~/app/app-routing.module";
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component';
-// Uncomment and add to NgModule imports if you need to use two-way binding
-// import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NavTabsComponent } from './nav-tabs/nav-tabs.component';
+import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 // import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
@@ -24,7 +24,8 @@ import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component'
     imports: [
         NativeScriptModule,
         NativeScriptFormsModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NativeScriptUISideDrawerModule
     ],
     declarations: [
         AppComponent,
@@ -34,7 +35,8 @@ import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component'
         EditClientFormComponent,
         CalendarComponent,
         AuthComponent,
-        ActionBarComponent
+        ActionBarComponent,
+        NavTabsComponent
     ],
     providers: [],
     schemas: [
