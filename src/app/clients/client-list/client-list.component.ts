@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ItemEventData } from 'tns-core-modules/ui/list-view';
 import { RouterExtensions } from 'nativescript-angular/router';
 
+
 @Component({
   selector: 'ns-client-list',
   templateUrl: './client-list.component.html',
@@ -18,7 +19,7 @@ export class ClientListComponent implements OnInit {
   }
 
   onClientTap(args: ItemEventData) {
-    console.log(args);
+    console.log(args.index);
   }
 
   getClientPage() {
