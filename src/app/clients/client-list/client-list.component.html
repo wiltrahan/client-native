@@ -8,10 +8,22 @@
   </Button>
 </StackLayout> -->
 
-<ListView [items]="clients" (itemTap)="onClientTap($event)">
+<!-- <ListView [items]="clients" (itemTap)="onClientTap($event)">
   <ng-template let-client="item">
     <StackLayout orientation="horizontal" class="list-group-item">
       <Label [text]="client"></Label>
     </StackLayout>
   </ng-template>
-</ListView>
+</ListView> -->
+<GridLayout tkExampleTitle tkToggleNavButton>
+  <RadListView [items]="clients">
+    <ng-template tkListItemTemplate let-client="item">
+      <StackLayout orientation="vertical">
+          <Label class="nameLabel" [text]="client.name"></Label>
+          <Label class="descriptionLabel" [text]="client.phone"></Label>
+          <Label class="descriptionLabel" [text]="client.email"></Label>
+      </StackLayout>
+    </ng-template>
+  </RadListView>
+</GridLayout>
+  
