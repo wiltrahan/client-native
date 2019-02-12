@@ -1,6 +1,18 @@
 <ns-action-bar title="Calendar"></ns-action-bar>
 
-<StackLayout>
-    <Label text="Calendar Here"></Label>
-  <Button text="calendar works!" class="btn btn-primary"></Button>
-</StackLayout>
+<RadCalendar
+  [eventSource]="calendarEvents"
+  eventsViewMode="Inline" 
+	selectionMode="Single" 
+	viewMode="Month" 
+	transitionMode="Stack"
+  locale="en-US"
+  
+  (dateSelected)="onDateSelected($event)" 
+	(dateDeselected)="onDateDeselected($event)" 
+	(navigatedToDate)="onNavigatedToDate($event)" 
+	(navigatingToDateStarted)="onNavigatingToDateStarted($event)"
+	(viewModeChanged)="onViewModeChanged($event)">
+  
+
+</RadCalendar>
