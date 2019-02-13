@@ -1,20 +1,4 @@
 <ns-action-bar title="Client List"></ns-action-bar>
-<!-- <StackLayout>
-  <Label text="Clients will be here!"></Label>
-  <Button 
-    text="Client" 
-    class="btn"
-    (tap)="getClientPage()">
-  </Button>
-</StackLayout> -->
-
-<!-- <ListView [items]="clients" (itemTap)="onClientTap($event)">
-  <ng-template let-client="item">
-    <StackLayout orientation="horizontal" class="list-group-item">
-      <Label [text]="client"></Label>
-    </StackLayout>
-  </ng-template>
-</ListView> -->
 <GridLayout tkExampleTitle tkToggleNavButton>
   <RadListView [items]="clients">
     <ng-template tkListItemTemplate let-client="item">
