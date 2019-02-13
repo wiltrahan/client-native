@@ -2,21 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { User } from '../shared/user/user.model';
 import { UserService } from '~/app/shared/user/user.service';
+import { AuthService } from './auth.service';
 @Component({
   selector: 'ns-auth',
-  providers: [UserService],
+  providers: [UserService, AuthService],
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
   moduleId: module.id,
 })
 export class AuthComponent implements OnInit {
-  // email = 'wiltrahan@us.gov';
   user: User;
   isLoggingIn = true;
   
-  constructor(private router: RouterExtensions, private userService: UserService) { 
-    this.user = new User();
-  }
+  constructor(
+    private router: RouterExtensions, 
+    private authService: AuthService) 
+    { 
+      this.user = new User();
+    }
 
   ngOnInit() {
   }
@@ -38,7 +41,7 @@ export class AuthComponent implements OnInit {
   }
 
   signUp() {
-    this.userService.register(this.user);
+    this.authService.signUp(this.user.email, this.user.password);
   }
  
   toggleDisplay() {

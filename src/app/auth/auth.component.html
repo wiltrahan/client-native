@@ -7,7 +7,7 @@
       [(ngModel)]="user.email" class="input input-border">
     </TextField>
     <TextField hint="Password" secure="true"
-    [(ngModel)]="user.password" class="input input-border">
+      [(ngModel)]="user.password" class="input input-border">
     </TextField>
     
     <Button [text]="isLoggingIn ? 'Sign in' : 'Sign up'" 
@@ -18,11 +18,3 @@
     </Button>
   </StackLayout>
 </FlexboxLayout>
-
-
-<!-- <Button
-    text="Login"
-    class="btn"
-    nsRouterLink="/clients"
-    [clearHistory]="true">
-  </Button> -->
