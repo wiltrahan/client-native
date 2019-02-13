@@ -17,7 +17,7 @@ import { NativeScriptUICalendarModule } from "nativescript-ui-calendar/angular";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
-// import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
 @NgModule({
     bootstrap: [
@@ -29,7 +29,8 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
         AppRoutingModule,
         NativeScriptUISideDrawerModule,
         NativeScriptUICalendarModule,
-        NativeScriptUIListViewModule
+        NativeScriptUIListViewModule,
+        NativeScriptHttpClientModule
     ],
     declarations: [
         AppComponent,
