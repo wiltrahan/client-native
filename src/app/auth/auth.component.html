@@ -1,11 +1,28 @@
 <ns-action-bar title="Welcome!" [hasMenu]="false"></ns-action-bar>
 
-<StackLayout>
-  <Button
+<FlexboxLayout>
+  <StackLayout class="form">
+    <TextField hint="Email Address" keyboardType="email"
+      autocorrect="false" autocapitalizationType="none"
+      [(ngModel)]="user.email" class="input input-border">
+    </TextField>
+    <TextField hint="Password" secure="true"
+    [(ngModel)]="user.password" class="input input-border">
+    </TextField>
+    
+    <Button [text]="isLoggingIn ? 'Sign in' : 'Sign up'" 
+      class="btn btn-primary" (tap)="submit()">
+    </Button>
+    <Button [text]="isLoggingIn ? 'Sign up' : 'Back to login'" 
+      (tap)="toggleDisplay()">
+    </Button>
+  </StackLayout>
+</FlexboxLayout>
+
+
+<!-- <Button
     text="Login"
     class="btn"
     nsRouterLink="/clients"
     [clearHistory]="true">
-  </Button>
-</StackLayout>
-
+  </Button> -->

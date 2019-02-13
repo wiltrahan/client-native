@@ -11,7 +11,7 @@ refer to http://docs.nativescript.org/ui/theme.
 */
 @import '~nativescript-theme-core/css/core.light.css';
 
-.btn {
+/* .btn {
   background: #7c015d;
   border-width: 1;
   border-color: #7c015d;
@@ -20,7 +20,7 @@ refer to http://docs.nativescript.org/ui/theme.
   padding: 5 10;
   border-radius: 30%;
   margin: 5 0;
-}
+} */
 
 .drawer-container {
   background: linear-gradient(140deg, #2b0c72, #5c3fa0);
@@ -29,4 +29,9 @@ refer to http://docs.nativescript.org/ui/theme.
   justify-content: center;
   align-items: center;
   padding: 20;
+}
+
+ActionBar {
+  background-color: black;
+  color: white;
 }
