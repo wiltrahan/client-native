@@ -14,6 +14,8 @@ import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component'
 import { NavTabsComponent } from './nav-tabs/nav-tabs.component';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
 import { NativeScriptUICalendarModule } from "nativescript-ui-calendar/angular";
+import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
+
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 // import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
@@ -26,7 +28,8 @@ import { NativeScriptUICalendarModule } from "nativescript-ui-calendar/angular";
         NativeScriptFormsModule,
         AppRoutingModule,
         NativeScriptUISideDrawerModule,
-        NativeScriptUICalendarModule
+        NativeScriptUICalendarModule,
+        NativeScriptUIListViewModule
     ],
     declarations: [
         AppComponent,
