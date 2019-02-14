@@ -8,20 +8,18 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
   
-  signUp(email: string, password: string) {
-
-    this.http.post(
+  registerNewUser(email: string, password: string) {
+    return this.http.post(
       `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${FIREBASE}`,
-      { email: email, 
-        password: password, 
-        returnSecureToken: true}
-    ).subscribe(resData => {
-        console.log('*****' + resData);
-      });
+      { email: email, password: password, returnSecureToken: true }
+    )
   }
 
-  login(email: string, password: string) {
-    // this.user.email = email;
-    // this.user.password = password;
+  loginUser(email: string, password: string) {
+    return this.http.post(
+      `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${FIREBASE}`,
+      {email: email, password: password, returnSecureToken: true }
+    )
   }
+
 }

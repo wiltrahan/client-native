@@ -13,6 +13,7 @@ import { AuthService } from './auth.service';
 export class AuthComponent implements OnInit {
   user: User;
   isLoggingIn = true;
+  isLoading = true;
   
   constructor(
     private router: RouterExtensions, 
@@ -24,10 +25,6 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
   }
 
-  // onSignin() {
-  //   this.router.navigate(['/client-list'], {clearHistory: true});
-  // }
-
   submit() {
     if(this.isLoggingIn) {
       this.login();
@@ -37,11 +34,21 @@ export class AuthComponent implements OnInit {
   }
 
   login() {
-
+    this.authService.loginUser(this.user.email, this.user.password).subscribe(resData => {
+      this.isLoading = false;
+      this.router.navigate(['/clients'], {clearHistory: true});
+    },
+    err => {
+      console.log(err);
+      this.isLoading = false;
+    });
   }
 
   signUp() {
-    this.authService.signUp(this.user.email, this.user.password);
+    this.authService.registerNewUser(this.user.email, this.user.password).subscribe(resData => {
+      this.isLoading = false;
+      this.router.navigate(['/client-list'], {clearHistory: true});
+    });
   }
  
   toggleDisplay() {
