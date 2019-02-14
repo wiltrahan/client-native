@@ -3,6 +3,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { User } from '../shared/user/user.model';
 import { UserService } from '~/app/shared/user/user.service';
 import { AuthService } from './auth.service';
+
 @Component({
   selector: 'ns-auth',
   providers: [UserService, AuthService],
@@ -13,6 +14,7 @@ import { AuthService } from './auth.service';
 export class AuthComponent implements OnInit {
   user: User;
   isLoggingIn = true;
+  isLoading = false;
   
   constructor(
     private router: RouterExtensions, 
@@ -24,11 +26,8 @@ export class AuthComponent implements OnInit {
   ngOnInit() {
   }
 
-  // onSignin() {
-  //   this.router.navigate(['/client-list'], {clearHistory: true});
-  // }
-
   submit() {
+    this.isLoading = true;
     if(this.isLoggingIn) {
       this.login();
     } else {
@@ -37,11 +36,17 @@ export class AuthComponent implements OnInit {
   }
 
   login() {
-
+    this.authService.loginUser(this.user.email, this.user.password).subscribe(resData => {
+      this.isLoading = false;
+      this.router.navigate(['/clients'], {clearHistory: true});
+    });
   }
 
   signUp() {
-    this.authService.signUp(this.user.email, this.user.password);
+    this.authService.registerNewUser(this.user.email, this.user.password).subscribe(resData => {
+      this.isLoading = false;
+      this.router.navigate(['/clients'], {clearHistory: true});
+    });
   }
  
   toggleDisplay() {

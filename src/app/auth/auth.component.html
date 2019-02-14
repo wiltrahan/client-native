@@ -16,5 +16,6 @@
     <Button [text]="isLoggingIn ? 'Sign up' : 'Back to login'" 
       (tap)="toggleDisplay()">
     </Button>
+    <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
   </StackLayout>
 </FlexboxLayout>
