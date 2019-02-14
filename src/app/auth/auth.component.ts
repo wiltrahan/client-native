@@ -13,7 +13,7 @@ import { AuthService } from './auth.service';
 export class AuthComponent implements OnInit {
   user: User;
   isLoggingIn = true;
-  isLoading = true;
+  isLoading = false;
   
   constructor(
     private router: RouterExtensions, 
@@ -26,6 +26,7 @@ export class AuthComponent implements OnInit {
   }
 
   submit() {
+    this.isLoading = true;
     if(this.isLoggingIn) {
       this.login();
     } else {
@@ -37,17 +38,13 @@ export class AuthComponent implements OnInit {
     this.authService.loginUser(this.user.email, this.user.password).subscribe(resData => {
       this.isLoading = false;
       this.router.navigate(['/clients'], {clearHistory: true});
-    },
-    err => {
-      console.log(err);
-      this.isLoading = false;
     });
   }
 
   signUp() {
     this.authService.registerNewUser(this.user.email, this.user.password).subscribe(resData => {
       this.isLoading = false;
-      this.router.navigate(['/client-list'], {clearHistory: true});
+      this.router.navigate(['/clients'], {clearHistory: true});
     });
   }
  
