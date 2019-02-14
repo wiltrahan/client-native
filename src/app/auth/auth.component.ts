@@ -3,6 +3,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { User } from '../shared/user/user.model';
 import { UserService } from '~/app/shared/user/user.service';
 import { AuthService } from './auth.service';
+
 @Component({
   selector: 'ns-auth',
   providers: [UserService, AuthService],
