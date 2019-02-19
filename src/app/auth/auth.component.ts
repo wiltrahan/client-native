@@ -21,6 +21,8 @@ export class AuthComponent {
   
   constructor(private router: RouterExtensions, private authService: AuthService) { 
       this.user = new User();
+      this.user.email = "wil@us.gov";
+      this.user.password = "aaaaaa";
   }
 
   toggleForm() {
@@ -59,17 +61,22 @@ export class AuthComponent {
       this.processing = false;
       this.alert("Your account was successfully created");
       this.isLoggingIn = true;
-      // this.router.navigate(['/clients'], {clearHistory: true});
     });
   }
  
-  // toggleDisplay() {
-  //   this.isLoggingIn = !this.isLoggingIn;
-  // }
+  focusPassword() {
+    this.password.nativeElement.focus();
+  }
+
+  focusConfirmPassword() {
+    if (!this.isLoggingIn) {
+      this.confirmPassword.nativeElement.focus();
+    }
+  }
 
   alert(message: string) {
     return alert({
-        title: "APP NAME",
+        title: "Client Stack",
         okButtonText: "OK",
         message: message
     });
