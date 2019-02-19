@@ -1,35 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
+import { alert, prompt } from "tns-core-modules/ui/dialogs";
+
 import { User } from '../shared/user/user.model';
-import { UserService } from '~/app/shared/user/user.service';
 import { AuthService } from './auth.service';
 
 @Component({
   selector: 'ns-auth',
-  providers: [UserService, AuthService],
+  providers: [AuthService],
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
   moduleId: module.id,
 })
-export class AuthComponent implements OnInit {
-  user: User;
+export class AuthComponent {
   isLoggingIn = true;
-  isLoading = false;
+  user: User;
+  processing = false;
+  @ViewChild("password") password: ElementRef;
+  @ViewChild("confirmPassword") confirmPassword: ElementRef;
   
-  constructor(
-    private router: RouterExtensions, 
-    private authService: AuthService) 
-    { 
+  constructor(private router: RouterExtensions, private authService: AuthService) { 
       this.user = new User();
-    }
-
-  ngOnInit() {
   }
 
+  toggleForm() {
+    this.isLoggingIn = !this.isLoggingIn;
+  }
+
+
   submit() {
-    this.isLoading = true;
-    if(this.isLoggingIn) {
-      this.login();
+    if (!this.user.email || !this.user.password) {
+      this.alert("Please provide both an email address and password.");
+      return;
+    }
+    
+    this.processing = true;
+    if (this.isLoggingIn) {
+        this.login();
     } else {
       this.signUp();
     }
@@ -37,20 +44,35 @@ export class AuthComponent implements OnInit {
 
   login() {
     this.authService.loginUser(this.user.email, this.user.password).subscribe(resData => {
-      this.isLoading = false;
+      this.processing = false;
       this.router.navigate(['/clients'], {clearHistory: true});
     });
   }
+  
 
   signUp() {
+    if (this.user.password != this.user.confirmPassword) {
+      this.alert("Your passwords do not match.");
+      return;
+    }
     this.authService.registerNewUser(this.user.email, this.user.password).subscribe(resData => {
-      this.isLoading = false;
-      this.router.navigate(['/clients'], {clearHistory: true});
+      this.processing = false;
+      this.alert("Your account was successfully created");
+      this.isLoggingIn = true;
+      // this.router.navigate(['/clients'], {clearHistory: true});
     });
   }
  
-  toggleDisplay() {
-    this.isLoggingIn = !this.isLoggingIn;
+  // toggleDisplay() {
+  //   this.isLoggingIn = !this.isLoggingIn;
+  // }
+
+  alert(message: string) {
+    return alert({
+        title: "APP NAME",
+        okButtonText: "OK",
+        message: message
+    });
   }
 
 }
