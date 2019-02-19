@@ -11,7 +11,8 @@ import { IClient } from '~/app/shared/interfaces';
 })
 export class ClientListComponent implements OnInit {
 
-  @Input() clients = [
+  mySortedClients: object[] = [];
+  clients = [
     { name: 'Jessica Nunes', phone: '333.333.3333', email: 'stylistjess@aol.com' },
     { name: 'Frankie Nunes', phone: '401.111.1111', email: 'frankie@woof.org' },
     { name: 'Wil Trahan', phone: '508.999.9999', email: 'willyT@us.gov' },
@@ -30,10 +31,12 @@ export class ClientListComponent implements OnInit {
     { name: 'Barack Obama', phone: '281.121.2222', email: 'barack@us.gov' }
   ];
 
-
-  constructor(private router: RouterExtensions) {}
+  constructor(private router: RouterExtensions) {
+    
+  }
 
   ngOnInit() {
+    this.mySortedClients = this.clients.sort(this.sorter);
   }
 
   onClientTap(args: ItemEventData) {
@@ -44,4 +47,16 @@ export class ClientListComponent implements OnInit {
     this.router.navigate(['/client']);
   }
 
+  sorter(a, b) {
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
+    let comparison = 0;
+
+    if(nameA > nameB) {
+      comparison = 1;
+    } else if (nameA < nameB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
 }

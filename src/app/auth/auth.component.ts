@@ -21,6 +21,8 @@ export class AuthComponent {
   
   constructor(private router: RouterExtensions, private authService: AuthService) { 
       this.user = new User();
+      this.user.email = "wil@us.gov";
+      this.user.password = "aaaaaa";
   }
 
   toggleForm() {

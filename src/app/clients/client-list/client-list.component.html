@@ -2,10 +2,11 @@
 <GridLayout tkExampleTitle tkToggleNavButton>
   <RadListView [items]="clients">
     <ng-template tkListItemTemplate let-client="item">
-      <StackLayout orientation="vertical">
-          <Label class="nameLabel" [text]="client.name"></Label>
+      <StackLayout>
+          <Label class="nameLabel" [text]="client.name" [sortingFunction]="mySortedClients"></Label>
           <Label class="descriptionLabel" [text]="client.phone"></Label>
           <Label class="descriptionLabel" [text]="client.email"></Label>
+          <StackLayout class="hr-light m-10"></StackLayout>
       </StackLayout>
     </ng-template>
   </RadListView>
