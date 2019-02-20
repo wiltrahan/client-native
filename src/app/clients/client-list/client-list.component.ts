@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ItemEventData } from 'tns-core-modules/ui/list-view';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { IClient } from '~/app/shared/interfaces';
 import { ListViewEventData, RadListView } from "nativescript-ui-listview";
@@ -41,6 +40,7 @@ export class ClientListComponent implements OnInit {
     const listview = args.object as RadListView;
     const selectedItems = listview.getSelectedItems();
     console.log(selectedItems);
+    this.getClientPage();
   }
 
   getClientPage() {

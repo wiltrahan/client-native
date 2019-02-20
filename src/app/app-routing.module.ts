@@ -9,22 +9,6 @@ import { EditClientFormComponent } from "~/app/clients/edit-client-form/edit-cli
 import { NavTabsComponent } from "~/app/nav-tabs/nav-tabs.component";
 import { CalendarComponent } from "~/app/calendar/calendar.component";
 
-// const routes: Routes = [
-//   { path: '', component: AuthComponent },
-//   { path: 'client', component: ClientInfoComponent, 
-//     children: [
-//       { path: 'edit-client-form', component: EditClientFormComponent, outlet: 'editClientForm'}
-//     ] 
-//   },
-//   { path: 'nav-tabs',  component: NavTabsComponent, 
-//     children: [
-//       { path: 'client-list', component: ClientListComponent, outlet: 'clientList' },
-//       { path: 'new-client-form', component: NewClientFormComponent, outlet: 'newClientForm' },
-//       { path: 'calendar', component: CalendarComponent, outlet: 'calendar' }
-//     ] 
-//   }
-// ];
-
 const routes: Routes = [
   { path: '', component: AuthComponent },
   {
