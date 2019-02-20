@@ -39,12 +39,13 @@ export class ClientListComponent implements OnInit {
   onClientTap(args: ListViewEventData) {
     const listview = args.object as RadListView;
     const selectedItems = listview.getSelectedItems();
-    console.log(selectedItems);
-    this.getClientPage();
+    const clientName = selectedItems[0].name;
+    console.log(clientName);
+    this.getClientPage(clientName);
   }
 
-  getClientPage() {
-    this.router.navigate(['/client']);
+  getClientPage(name: string) {
+    this.router.navigate(['/client', name]);
   }
 
   sorter(a, b) {
