@@ -23,7 +23,7 @@ refer to http://docs.nativescript.org/ui/theme.
 } */
 
 .drawer-container {
-  background: linear-gradient(140deg, #2b0c72, #5c3fa0);
+  background: linear-gradient(140deg, #129191, #1AD5D5);
   /* horizontal-align: left; */
   flex-direction: column;
   justify-content: center;
@@ -32,7 +32,7 @@ refer to http://docs.nativescript.org/ui/theme.
 }
 
 ActionBar {
-  background-color: black;
+  background-color: #D51A1A;
   color: white;
 }
 
