@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ItemEventData } from 'tns-core-modules/ui/list-view';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { IClient } from '~/app/shared/interfaces';
-
+import { ListViewEventData, RadListView } from "nativescript-ui-listview";
 @Component({
   selector: 'ns-client-list',
   templateUrl: './client-list.component.html',
@@ -31,16 +30,17 @@ export class ClientListComponent implements OnInit {
     { name: 'Barack Obama', phone: '281.121.2222', email: 'barack@us.gov' }
   ];
 
-  constructor(private router: RouterExtensions) {
-    
-  }
+  constructor(private router: RouterExtensions) { }
 
   ngOnInit() {
     this.mySortedClients = this.clients.sort(this.sorter);
   }
 
-  onClientTap(args: ItemEventData) {
-    console.log(args.index);
+  onClientTap(args: ListViewEventData) {
+    const listview = args.object as RadListView;
+    const selectedItems = listview.getSelectedItems();
+    console.log(selectedItems);
+    this.getClientPage();
   }
 
   getClientPage() {

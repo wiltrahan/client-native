@@ -1,12 +1,11 @@
 <ns-action-bar title="Client List"></ns-action-bar>
 <GridLayout tkExampleTitle tkToggleNavButton>
-  <RadListView [items]="clients">
+  <RadListView [items]="clients" selectionBehavior="Press" (itemSelected)="onClientTap($event)">
     <ng-template tkListItemTemplate let-client="item">
       <StackLayout>
           <Label class="nameLabel" [text]="client.name" [sortingFunction]="mySortedClients"></Label>
           <Label class="descriptionLabel" [text]="client.phone"></Label>
-          <Label class="descriptionLabel" [text]="client.email"></Label>
-          <StackLayout class="hr-light m-10"></StackLayout>
+          <StackLayout class="hr-light m-4"></StackLayout>
       </StackLayout>
     </ng-template>
   </RadListView>
