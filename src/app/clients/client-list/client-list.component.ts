@@ -1,8 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { IClient } from '~/app/shared/interfaces';
 import { ListViewEventData, RadListView } from "nativescript-ui-listview";
 import { ClientService } from '../client.service';
+import { ModalDialogService } from 'nativescript-angular';
+import { ClientModalComponent } from '~/app/clients/client-modal/client-modal.component';
+import { UIService } from '~/app/shared/ui.service';
 @Component({
   selector: 'ns-client-list',
   providers: [ClientService],
@@ -12,24 +15,44 @@ import { ClientService } from '../client.service';
 })
 export class ClientListComponent implements OnInit {
 
-  myUnsortedClients: object[] = [];
-  mySortedClients: object[] = [];
   clients: IClient[] = [];
 
-  constructor(private router: RouterExtensions, private clientService: ClientService) { }
+  constructor(
+    private router: RouterExtensions, 
+    private clientService: ClientService,
+    private modalDialog: ModalDialogService,
+    private vcRef: ViewContainerRef,
+    private uiService: UIService
+  ) { }
 
   ngOnInit() {
-    // this.mySortedClients = this.clients.sort(this.sorter);
-    // this.myUnsortedClients = this.clientService.getClients();
     this.clients = this.clientService.getClients().sort(this.sorter);
   }
+
+  // onClientTap(args: ListViewEventData) {
+  //   const listview = args.object as RadListView;
+  //   const selectedItems = listview.getSelectedItems();
+  //   const clientName = selectedItems[0].name;
+  //   console.log(clientName);
+  //   this.getClientPage(clientName);
+  // }
 
   onClientTap(args: ListViewEventData) {
     const listview = args.object as RadListView;
     const selectedItems = listview.getSelectedItems();
     const clientName = selectedItems[0].name;
     console.log(clientName);
-    this.getClientPage(clientName);
+    this.modalDialog.showModal(ClientModalComponent, {
+      fullscreen: true,
+      viewContainerRef: this.uiService.getRootVcRef() 
+        ? this.uiService.getRootVcRef()
+        : this.vcRef,
+      context: clientName
+      
+    }).then((action: string) => {
+      console.log('*** ' + clientName);
+      console.log(action);
+    });
   }
 
   getClientPage(name: string) {
