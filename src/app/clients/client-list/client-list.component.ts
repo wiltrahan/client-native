@@ -37,12 +37,21 @@ export class ClientListComponent implements OnInit {
   //   this.getClientPage(clientName);
   // }
 
-  onClientTap() {
+  onClientTap(args: ListViewEventData) {
+    const listview = args.object as RadListView;
+    const selectedItems = listview.getSelectedItems();
+    const clientName = selectedItems[0].name;
+    console.log(clientName);
     this.modalDialog.showModal(ClientModalComponent, {
       fullscreen: true,
       viewContainerRef: this.uiService.getRootVcRef() 
         ? this.uiService.getRootVcRef()
-        : this.vcRef
+        : this.vcRef,
+      context: clientName
+      
+    }).then((action: string) => {
+      console.log('*** ' + clientName);
+      console.log(action);
     });
   }
 

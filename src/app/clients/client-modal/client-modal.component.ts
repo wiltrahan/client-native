@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalDialogParams } from 'nativescript-angular';
 
 @Component({
   selector: 'ns-client-modal',
@@ -8,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientModalComponent implements OnInit {
 
-  constructor() { }
+  clientName: string;
+
+  constructor(private modalParams: ModalDialogParams) { }
 
   ngOnInit() {
+    this.clientName = this.modalParams.context as string;
+  }
+
+  onCall(action: string) {
+    this.modalParams.closeCallback(action);
+  }
+
+  onText(action: string) {
+
+  }
+
+  toProfile(action: string) {
+
   }
 
 }

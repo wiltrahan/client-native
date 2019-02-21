@@ -1,5 +1,8 @@
 <FlexboxLayout>
-  <Button class="btn btn-primary m-t-20" text="Call"></Button>
-  <Button class="btn btn-primary m-t-20" text="Text"></Button>
-  <Button class="btn btn-primary m-t-20" text="Profile"></Button>
+  <Label text="{{clientName}}"></Label>
+  <Button class="btn btn-primary m-t-20" text="Call" (tap)="onCall('call')"></Button>
+  <Button class="btn btn-primary m-t-20" text="Text" (tap)="onText('text')"></Button>
+  <Button class="btn btn-primary m-t-20" text="Profile" (tap)="toProfile('profile')"></Button>
 </FlexboxLayout>
+
+<!-- <Label text="Hello {{fullName}}"></Label> -->
