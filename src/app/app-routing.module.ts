@@ -27,7 +27,7 @@ const routes: Routes = [
       { path: '', redirectTo: '/clients/nav-tabs', pathMatch: 'full'}
     ],
   },
-  { path: 'client', component: ClientInfoComponent }
+  { path: 'client/:name', component: ClientInfoComponent }
 ];
 
 @NgModule({

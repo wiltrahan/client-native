@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'ns-client-info',
@@ -9,7 +10,13 @@ import { RouterExtensions } from 'nativescript-angular/router';
 })
 export class ClientInfoComponent implements OnInit {
 
-  constructor(private router: RouterExtensions) { }
+  public fullName: string;
+
+  constructor(private router: RouterExtensions, private route: ActivatedRoute) { 
+    this.route.params.subscribe((params) => {
+      this.fullName = params["name"];
+    })
+  }
 
   ngOnInit() {
   }
