@@ -19,6 +19,7 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { registerElement } from "nativescript-angular";
+import { ClientModalComponent } from './clients/client-modal/client-modal.component';
 registerElement("PreviousNextView", () => require("nativescript-iqkeyboardmanager").PreviousNextView);
 
 @NgModule({
@@ -43,12 +44,12 @@ registerElement("PreviousNextView", () => require("nativescript-iqkeyboardmanage
         CalendarComponent,
         AuthComponent,
         ActionBarComponent,
-        NavTabsComponent
+        NavTabsComponent,
+        ClientModalComponent
     ],
     providers: [],
-    schemas: [
-        NO_ERRORS_SCHEMA
-    ]
+    schemas: [NO_ERRORS_SCHEMA],
+    entryComponents: [ClientModalComponent]
 })
 /*
 Pass your application module to the bootstrapModule function located in main.ts to start your app

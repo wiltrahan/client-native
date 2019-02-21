@@ -3,7 +3,7 @@
   <RadListView [items]="clients" selectionBehavior="Press" (itemSelected)="onClientTap($event)">
     <ng-template tkListItemTemplate let-client="item">
       <StackLayout>
-          <Label class="nameLabel" [text]="client.name" [sortingFunction]="mySortedClients"></Label>
+          <Label class="nameLabel" [text]="client.name"></Label>
           <Label class="descriptionLabel" [text]="client.phone"></Label>
           <StackLayout class="hr-light m-4"></StackLayout>
       </StackLayout>
