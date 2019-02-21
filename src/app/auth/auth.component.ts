@@ -1,13 +1,12 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { alert, prompt } from "tns-core-modules/ui/dialogs";
+import { alert } from "tns-core-modules/ui/dialogs";
 
 import { User } from '../shared/user/user.model';
 import { AuthService } from './auth.service';
 
 @Component({
   selector: 'ns-auth',
-  providers: [AuthService],
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
   moduleId: module.id,
