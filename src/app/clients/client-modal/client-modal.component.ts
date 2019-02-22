@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalDialogParams } from 'nativescript-angular';
+import { ModalDialogParams, RouterExtensions } from 'nativescript-angular';
 
 @Component({
   selector: 'ns-client-modal',
@@ -11,7 +11,9 @@ export class ClientModalComponent implements OnInit {
 
   clientName: string;
 
-  constructor(private modalParams: ModalDialogParams) { }
+  constructor(
+    private modalParams: ModalDialogParams, 
+    private router: RouterExtensions) { }
 
   ngOnInit() {
     this.clientName = this.modalParams.context as string;
@@ -26,7 +28,7 @@ export class ClientModalComponent implements OnInit {
   }
 
   toProfile(action: string) {
-
+    this.modalParams.closeCallback(action);
   }
 
 }
