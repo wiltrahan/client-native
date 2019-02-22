@@ -29,6 +29,7 @@ export class ClientModalComponent implements OnInit {
 
   toProfile(action: string) {
     this.modalParams.closeCallback(action);
+    console.log('I LIKE TURTLES');
   }
 
 }

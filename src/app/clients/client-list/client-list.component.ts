@@ -42,11 +42,10 @@ export class ClientListComponent implements OnInit {
     const clientName = name;
     const options: ModalDialogOptions = {
       fullscreen: true,
-      viewContainerRef: this.uiService.getRootVcRef() 
-      ? this.uiService.getRootVcRef()
-      : this.vcRef,
+      viewContainerRef: this.uiService.getRootVcRef(),
       context: clientName
     }
+    
     this.modalDialog.showModal(ClientModalComponent, options)
       .then((action: string) => {
         console.log(action);
