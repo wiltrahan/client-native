@@ -3,7 +3,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { IClient } from '~/app/shared/interfaces';
 import { ListViewEventData, RadListView } from "nativescript-ui-listview";
 import { ClientService } from '../client.service';
-import { ModalDialogService } from 'nativescript-angular';
+import { ModalDialogService, ModalDialogOptions } from 'nativescript-angular';
 import { ClientModalComponent } from '~/app/clients/client-modal/client-modal.component';
 import { UIService } from '~/app/shared/ui.service';
 @Component({
@@ -29,30 +29,27 @@ export class ClientListComponent implements OnInit {
     this.clients = this.clientService.getClients().sort(this.sorter);
   }
 
-  // onClientTap(args: ListViewEventData) {
-  //   const listview = args.object as RadListView;
-  //   const selectedItems = listview.getSelectedItems();
-  //   const clientName = selectedItems[0].name;
-  //   console.log(clientName);
-  //   this.getClientPage(clientName);
-  // }
 
   onClientTap(args: ListViewEventData) {
     const listview = args.object as RadListView;
     const selectedItems = listview.getSelectedItems();
     const clientName = selectedItems[0].name;
-    console.log(clientName);
-    this.modalDialog.showModal(ClientModalComponent, {
+    
+    this.openClientModal(clientName);
+  }
+
+  openClientModal(name: string) {
+    const clientName = name;
+    const options: ModalDialogOptions = {
       fullscreen: true,
-      viewContainerRef: this.uiService.getRootVcRef() 
-        ? this.uiService.getRootVcRef()
-        : this.vcRef,
+      viewContainerRef: this.uiService.getRootVcRef(),
       context: clientName
-      
-    }).then((action: string) => {
-      console.log('*** ' + clientName);
-      console.log(action);
-    });
+    }
+    
+    this.modalDialog.showModal(ClientModalComponent, options)
+      .then((action: string) => {
+        console.log(action);
+      });
   }
 
   getClientPage(name: string) {
